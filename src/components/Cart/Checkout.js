@@ -40,10 +40,17 @@ const Checkout = (props) => {
       enteredCitytIsValid &&
       enteredPostalIsValid;
 
-    if (formIsValid) {
-      // Submit the cart data
-      return;
-    }
+    // if (!formIsValid) {
+    //   // Submit the cart data
+    //   return;
+    // }
+    // console.log('jo')
+    props.onConfirm({
+      name: enteredName,
+      street: enteredStreet,
+      postal: enteredPostal,
+      city: enteredCity,
+    });
   };
 
   return (
@@ -88,7 +95,7 @@ const Checkout = (props) => {
         <button type="button" onClick={props.onCancel}>
           Cancel
         </button>
-        <button className={classes.submit}>Confirm</button>
+        <button type="submit" className={classes.submit}>Confirm</button>
       </div>
     </form>
   );
